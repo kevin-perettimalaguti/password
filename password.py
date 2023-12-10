@@ -30,7 +30,7 @@ def crypter_password(password):
 passwords = []
 
 # Boucle qui se répète 3 fois maximum
-for _ in range(5):  # Répétez les étapes 2 à 4 jusqu'à 3 tentatives
+for _ in range(5):  # Répétez les étapes 2 à 4 jusqu'à 4 tentatives
     password = definir_mdp()
         
     # Si le mot de passe est validé, ca affiche un message et ca coupe la boucle
@@ -44,7 +44,7 @@ for _ in range(5):  # Répétez les étapes 2 à 4 jusqu'à 3 tentatives
     else:
         print("Le mot de passe est invalide. Il doit avoir au minimum : une majuscule, une minuscule, un chiffre et un caractère spécial.")
 else:
-    print("Vous n'avez pas saisi un mot de passe valide après 3 tentatives. Programme terminé.")
+    print("Vous n'avez pas saisi un mot de passe valide après 4 tentatives. Programme terminé.")
 
 
 # Pour aller plus loin...
