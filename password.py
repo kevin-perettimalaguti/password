@@ -1,4 +1,5 @@
 import hashlib
+import json
 
 # L'utilisateur choissie le mot de passe 
 def definir_mdp():
@@ -25,14 +26,18 @@ def crypter_password(password):
     return mdp_hache
 
 
+# Liste pour stocker les mots de passe
+passwords = []
+
 # Boucle qui se répète 3 fois maximum
-for _ in range(3):  # Répétez les étapes 2 à 4 jusqu'à 3 tentatives
+for _ in range(5):  # Répétez les étapes 2 à 4 jusqu'à 3 tentatives
     password = definir_mdp()
-    password_crypte = crypter_password(password)
-    
+        
     # Si le mot de passe est validé, ca affiche un message et ca coupe la boucle
     if verification_password(password):
+        password_crypte = crypter_password(password)
         print(f"Le mot de passe est valide. Bienvenue, votre mot de passe haché est : {crypter_password(password)}")
+        passwords.append(password_crypte)
         break
     
     # Sinon l'utilisateur doit réssaissir un nouveau mot de passe 
@@ -47,14 +52,16 @@ else:
 # Le programme doit permettre à l’utilisateur d’ajouter de nouveaux mots de passe ou d’afficher ces derniers.
 # Pour ce bonus, il est nécessaire d’utiliser la bibliothèque “Json” de python.
 
-import json
 
 # Fonction pour sauvegarder les mots de passe dans un fichier JSON
 def save_file():
     global passwords
     
-    with open('<NomDuFichier>.json', 'w') as file:
+    with open('nom_du_fichier.json', 'w') as file:
         json.dump(passwords, file)
     print("Mots de passe enregistrés dans le fichier.")
+    
+# Appeler la fonction save_file pour enregistrer le mot de passe
+save_file()
 
 
