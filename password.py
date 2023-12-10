@@ -57,11 +57,9 @@ else:
 def save_file():
     global passwords
     
-    with open('nom_du_fichier.json', 'w') as file:
+    with open('stockage_mdp.json', 'w') as file:
         json.dump(passwords, file)
     print("Mots de passe enregistrés dans le fichier.")
     
 # Appeler la fonction save_file pour enregistrer le mot de passe
 save_file()
-
-
